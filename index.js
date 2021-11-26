@@ -1,15 +1,15 @@
-// //Server with Express
-// const { response } = require('express');
-// let express = require('express');
-// let app = express();
+//Server with Express
+const { response } = require('express');
+let express = require('express');
+let app = express();
 
 // //DB initial code
 // let Datastore = require('nedb');
 // let db = new Datastore({ filename: 'clouds.db', timestampData: true });
 // db.loadDatabase();
 
-// //Serve files from the "public" folder
-// app.use(express.static('public'));
+//Serve files from the "public" folder
+app.use(express.static('public'));
 
 // //Parse JSON data
 // app.use(express.json({ limit: '25mb' }));
@@ -63,10 +63,10 @@
 //     });
 // });
 
-// let port = process.env.PORT || 3000;
-// app.listen(port, () => {
-//     console.log('listening at ', port);
-// });
+let port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log('listening at ', port);
+});
 
 // // //Initialize the express 'app' object
 // // let express = require('express');

@@ -22,11 +22,19 @@ class Boat {
             glb.scene.scale.set(200, 200, 200);
             glb.scene.position.set(0, 0, 100);
             this.boat = glb.scene;
+            this.direction = 1;
+            this.creator = abc;
+            this.location = sh;
+            this.musicaddress = url;
         })
     }
     update() {
         if (this.boat) {
-            this.boat.position.z -= 0.1
+            this.boat.position.z -= 0.1 * this.direction;
+            if (this.boat.position.z <= -1 || this.boat.position.z >= 100) {
+                // this.boat.position.z = 0.1;
+                this.direction = -this.direction;
+            }
         }
     }
 }
