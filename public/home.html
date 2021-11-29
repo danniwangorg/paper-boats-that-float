@@ -6,24 +6,71 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="./js/homepage/p5.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <section class="background">
-        <div class="sun">
-            <a href="/public/float.html">
-                <h2>Enter</h2>
-            </a>
-            <div class="water">
-                <div class="reflection"></div>
-            </div>
+    <section class="home">
+        <div id="canvas-homepage"></div>
+        <div id="homepage" class="title">
+            <h1 id="tittle-h">PAPER BOATS THAT FLOAT</h1>
         </div>
-        <div class="plop"></div>
+
+        <div class="container-buttons">
+            <button class="nav-button" id="button-one">ENTER </button>
+        </div>
+
+
+        <div class="content" id="content-button-one">
+            <ul>
+                <label for="username">Name </label>
+                <input type="text" style="text-align:center" name="username" id="username"
+                    placeholder="Enter username..." required />
+            </ul>
+            <ul>
+                <label for="location">Location</label>
+                <input type="text" style="text-align:center" name="location" id="location"
+                    placeholder="Enter location..." required />
+            </ul>
+            <ul>
+                <label for="message">Message</label>
+                <input type="text" style="text-align:center" name="message" id="message" placeholder="Enter message..."
+                    required />
+            </ul>
+            <ul>
+                <button class="nav-button" id="button-two">FOLD </button>
+            </ul>
+        </div>
+        <div class="content" id="content-button-two">
+            <video id="MyVideo" src="./video/fold_paper_boat1.mp4" autoplay muted
+            style="width:100%;display:block;margin:0px auto;height:100%;top:0px"></video>
+            <script>
+                myVid=document.getElementById("MyVideo");
+                myVid.addEventListener('ended',function(){undefined
+                    window.location.href="/float.html";
+                });
+            </script>
+            </div>
     </section>
-    <div id="container"></div>
-    <script type="module" src="app.js">
-    </script>
+
+    <section>
+
+
+
+    </section>
+
+
+
+
+    <script language="javascript" type="text/javascript" class="homepage" src="./js/homepage/homepage.js"></script>
+    <script src="./js/home-button/button.js"></script>
+    <script type="stylesheet" src="app.js"></script>
 
 </body>
+
+
 
 </html>

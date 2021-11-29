@@ -168,3 +168,21 @@ function render() {
 
     renderer.render(scene, camera);
 }
+
+
+//open alert window
+renderer.domElement.addEventListener("click", onclick, true);
+var selectedObject;
+var raycaster = new THREE.Raycaster();
+
+function onclick(event) {
+alert("onclick")
+var mouse = new THREE.Vector2();
+raycaster.setFromCamera(mouse, camera);
+var intersects = raycaster.intersectObjects(planets, true); //array
+if (intersects.length > 0) {
+selectedObject = intersects[0];
+alert(selectedObject);
+   }
+}
+
