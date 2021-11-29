@@ -1,18 +1,22 @@
+body {
+    margin: 0;
+}
+
 
 /* enter button */
-.enterbt{
+
+.enterbt {
     position: absolute;
     align-items: center;
     justify-content: center;
     left: 680px;
 }
 
-.home{
+.home {
     z-index: -10000;
 }
 
-
-#canvas-homepage{
+#canvas-homepage {
     display: flex;
     z-index: 10000;
 }
@@ -20,88 +24,81 @@
 
 /* home title & instruction */
 
-h1{
+h1 {
     font-family: 'Righteous', cursive;
 }
 
-#tittle-h{
+#tittle-h {
     position: absolute;
-    display:inline;
+    display: inline;
     width: 920px;
     left: 30px;
     top: 349px;
-    
     font-style: normal;
-    font-weight:lighter;
+    font-weight: lighter;
     text-align: center;
     font-size: 100px;
     line-height: 120px;
-  
     color: #000000;
 }
 
 
 /* buttons */
 
-.container-buttons{
+.container-buttons {
     position: absolute;
-    display:inline;
+    display: inline;
     width: 920px;
     left: 310px;
     top: 460px;
 }
 
-
-.nav-button{
+.nav-button {
     position: absolute;
-    display:inline;
+    display: inline;
     width: 920px;
     left: 30px;
     top: 200px;
-    background-color:white;
-    color:#516A83;
+    background-color: white;
+    color: #516A83;
     border: 0 solid;
     border-radius: 0.8em;
-    width:12em;
-    height:3em;
+    width: 12em;
+    height: 3em;
     font-size: 16px;
     font-family: sans-serif;
     overflow: hidden;
     font-weight: bold;
     position: relative;
     transition: 0.5s;
-    margin:1em;
-    padding:0;
+    margin: 1em;
+    padding: 0;
 }
-
-
-
 
 .nav-button:hover {
     color: black;
     background-color: #96AfBD;
 }
 
+
 /* end of buttons */
 
 
 /* content */
 
-.content{
+.content {
     position: absolute;
-    right:200px;
+    right: 200px;
     top: 200px;
     text-align: center;
 }
 
-
-
-#content-button-two{
-    width:100%;
-    display:block;
-    margin:0px auto;
-    height:100%;
-    top:0px;
+#content-button-two {
+    width: 100%;
+    display: block;
+    margin: 0px auto;
+    height: 100%;
+    top: 0px;
     position: absolute;
     top: 0px;
     text-align: center;
@@ -109,10 +106,8 @@ h1{
     left: 0px;
 }
 
-
-
-ul{
-    display:block;
-    list-style-type:none;
-    margin:30;
+ul {
+    display: block;
+    list-style-type: none;
+    margin: 30;
 }

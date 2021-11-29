@@ -3,33 +3,33 @@ const { response } = require('express');
 let express = require('express');
 let app = express();
 
-// //DB initial code
-// let Datastore = require('nedb');
-// let db = new Datastore({ filename: 'clouds.db', timestampData: true });
-// db.loadDatabase();
+//DB initial code
+let Datastore = require('nedb');
+let db = new Datastore({ filename: 'boats.db', timestampData: true });
+db.loadDatabase();
 
 //Serve files from the "public" folder
 app.use(express.static('public'));
 
-// //Parse JSON data
-// app.use(express.json({ limit: '25mb' }));
-// app.use(express.urlencoded({
-//     extended: true,
-//     limit: '25mb'
-// }));
+//Parse JSON data
+app.use(express.json({ limit: '25mb' }));
+app.use(express.urlencoded({
+    extended: true,
+    limit: '25mb'
+}));
 
-// //Send Data Route
-// app.get('/data', (request, res) => {
-//     db.find({}, (err, docs) => {
-//         if (err) {
-//             res.json({ task: "task failed" });
-//         } else {
-//             let obj = docs;
-//             console.log(obj);
-//             res.json(obj);
-//         }
-//     });
-// });
+//Send Data Route
+app.get('/data', (request, res) => {
+    db.find({}, (err, docs) => {
+        if (err) {
+            res.json({ task: "task failed" });
+        } else {
+            let obj = docs;
+            console.log(obj);
+            res.json(obj);
+        }
+    });
+});
 
 // //Send Latest Data Route
 // app.get('/latest_data', (request, res) => {
@@ -47,21 +47,21 @@ app.use(express.static('public'));
 //     });
 // });
 
-// //Receive Data Route
-// app.post('/clouds', (request, res) => {
-//     console.log("A POST Request!");
-//     console.log(request.body);
+//Receive Data Route
+app.post('/boats', (request, res) => {
+    console.log("A POST Request!");
+    console.log(request.body);
 
-//     //Grab the cloud
-//     let cloudObj = request.body;
-//     db.insert(cloudObj, (err, newDocs) => {
-//         if (err) {
-//             res.json({ task: "task failed" });
-//         } else {
-//             res.json({ task: "success" });
-//         }
-//     });
-// });
+    //Grab the boat
+    let boatObj = request.body;
+    db.insert(boatObj, (err, newDocs) => {
+        if (err) {
+            res.json({ task: "task failed" });
+        } else {
+            res.json({ task: "success" });
+        }
+    });
+});
 
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
