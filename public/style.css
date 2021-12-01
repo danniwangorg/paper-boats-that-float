@@ -33,7 +33,7 @@ h1 {
     display: inline;
     width: 920px;
     left: 30px;
-    top: 349px;
+    top: 300px;
     font-style: normal;
     font-weight: lighter;
     text-align: center;
@@ -48,9 +48,9 @@ h1 {
 .container-buttons {
     position: absolute;
     display: inline;
-    width: 920px;
-    left: 310px;
-    top: 460px;
+    width: auto;
+    left: 250px;
+    top: 400px;
 }
 
 .nav-button {
@@ -63,9 +63,9 @@ h1 {
     color: #516A83;
     border: 0 solid;
     border-radius: 0.8em;
-    width: 12em;
-    height: 3em;
-    font-size: 16px;
+    width: 8em;
+    height: 2em;
+    font-size: 28px;
     font-family: sans-serif;
     overflow: hidden;
     font-weight: bold;
