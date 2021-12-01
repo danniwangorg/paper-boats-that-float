@@ -13,47 +13,22 @@
 </head>
 
 <body>
-
-    <section class="home">
+    <section class="homebg">
         <div id="canvas-homepage"></div>
-        <div id="homepage" class="title">
-            <h1 id="tittle-h">PAPER BOATS THAT FLOAT</h1>
+    </section>
+    <section class="title">
+        <div>
+            <h1 id="tittle">PAPER BOATS THAT FLOAT</h1>
         </div>
         <div class="container-buttons">
-            <button class="nav-button" id="button-one">ENTER </button>
-        </div>
-        <div class="content" id="content-button-one">
-            <ul>
-                <label for="username">Name </label>
-                <input type="text" style="text-align:center" name="username" id="username" placeholder="Enter username..." required />
-            </ul>
-            <ul>
-                <label for="location">Location</label>
-                <input type="text" style="text-align:center" name="location" id="location" placeholder="Enter location..." required />
-            </ul>
-            <ul>
-                <label for="message">Message</label>
-                <input type="text" style="text-align:center" name="message" id="message" placeholder="Enter message..." required />
-            </ul>
-            <ul>
-                <button class="nav-button" id="button-two">FOLD </button>
-            </ul>
-        </div>
-        <div class="content" id="content-button-two">
-            <video id="MyVideo" src="./assets/fold_paper_boat.mp4" autoplay muted style="width:100%;display:block;margin:0px auto;height:100%;top:0px"></video>
-            <script>
-                myVid = document.getElementById("MyVideo");
-                myVid.addEventListener('ended', function() {
-                    undefined
-                    window.location.href = "/float.html";
-                });
-            </script>
+            <button class="nav-button" id="button-one" onclick="window.location.href='/fold.html'">ENTER </button>
         </div>
     </section>
 
     <script language="javascript" type="text/javascript" class="homepage" src="./js/homepage/homepage.js"></script>
     <script src="./js/home-button/button.js"></script>
     <script type="stylesheet" src="app.js"></script>
+
 
 </body>
 

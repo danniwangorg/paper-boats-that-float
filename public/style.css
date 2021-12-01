@@ -2,63 +2,58 @@ body {
     margin: 0;
 }
 
-
-/* enter button */
-
-.enterbt {
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    left: 680px;
-}
-
-.home {
-    z-index: -10000;
-}
-
-#canvas-homepage {
-    display: flex;
-    z-index: 10000;
-}
-
-
-/* home title & instruction */
+/* home page */
 
 h1 {
     font-family: 'Righteous', cursive;
 }
 
-#tittle-h {
+.homebg{
     position: absolute;
+    z-index: -100;
+    top:0px;
+}
+
+#canvas-homepage {
+    display: absolute;
+    z-index: 10000;
+}
+
+
+.tittle{
+    display: flex;
+    position: fixed;
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0px;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#tittle {
     display: inline;
-    width: 920px;
-    left: 30px;
-    top: 300px;
     font-style: normal;
     font-weight: lighter;
-    text-align: center;
     font-size: 100px;
     line-height: 120px;
     color: #000000;
 }
 
 
-/* buttons */
-
 .container-buttons {
-    position: absolute;
     display: inline;
     width: auto;
-    left: 250px;
+    align-items: center;
     top: 400px;
 }
 
 .nav-button {
-    position: absolute;
     display: inline;
     width: 920px;
     left: 30px;
-    top: 200px;
     background-color: white;
     color: #516A83;
     border: 0 solid;
@@ -81,7 +76,6 @@ h1 {
 }
 
 
-/* end of buttons */
 
 
 /* content */
@@ -91,23 +85,57 @@ h1 {
     right: 200px;
     top: 200px;
     text-align: center;
+    width: 100%;
+    height:100%;
 }
 
 #content-button-two {
     width: 100%;
-    display: block;
     margin: 0px auto;
     height: 100%;
     top: 0px;
     position: absolute;
-    top: 0px;
     text-align: center;
     z-index: 1000;
     left: 0px;
 }
 
-ul {
-    display: block;
-    list-style-type: none;
-    margin: 30;
+
+#MyVideo{
+    width:100%;
+    display:block;
+    margin:0px auto;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#paper{
+position: absolute;
+z-index: 0;
+top:0px;
+}
+
+
+/* fold page */
+.foldpgbg{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    z-index: -10000;
+}
+
+.foldpg{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height:100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
 }
