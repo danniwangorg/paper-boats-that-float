@@ -1,5 +1,5 @@
 {
-    "name": "paper_boats_that_float",
+    "name": "paper_boats",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -12,8 +12,8 @@
     "dependencies": {
         "express": "^4.17.1",
         "nedb": "^1.8.0",
-        "nodemon": "^2.0.15",
-        "socket.io": "^4.4.0",
+        "nodemon": "^2.0.14",
+        "socket.io": "^4.3.1",
         "three": "^0.135.0"
     }
 }

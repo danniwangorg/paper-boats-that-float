@@ -1,0 +1,47 @@
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    margin-top: 6em;
+    text-align: center;
+    background-image: url("/assets/paper_bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.display-data {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    line-height: 10px;
+}
+
+.button-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 350px;
+}
+
+.display-btn {
+    height: 34px;
+    width: 170px;
+    margin-top: 10px;
+}
+
+#boat-display {
+    height: 300px;
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 800px) {
+    .button-box {
+        flex-direction: column;
+        margin: 0;
+        align-items: center;
+    }
+}
