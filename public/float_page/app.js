@@ -24,9 +24,10 @@ class Boat {
             glb.scene.position.set(0, 0, 90);
             this.boat = glb.scene;
             this.direction = 1;
-            this.name = Username;
+            this.date = Date;
             this.loc = Location;
-            this.msg = Message;
+            this.msg = Story;
+            this.num = Count;
         })
     }
     update() {
