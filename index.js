@@ -31,6 +31,13 @@ app.get('/data', (request, res) => {
     });
 });
 
+//Send Messages Route
+app.get('/messages', (req, res) => {
+    db.find({}, (err, docs) => {
+        res.send(docs);
+    });
+});
+
 //Send Latest Data Route
 app.get('/latest_data', (request, res) => {
     db.find({}, (err, docs) => {

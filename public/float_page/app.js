@@ -16,12 +16,12 @@ const loader = new GLTFLoader();
 
 //load paperboat model
 class Boat {
-    constructor() {
+    constructor(x) {
         loader.load('../assets/paperboat.glb', (glb) => {
             console.log(glb);
             scene.add(glb.scene);
             glb.scene.scale.set(200, 200, 200);
-            glb.scene.position.set(0, 0, 90);
+            glb.scene.position.set(x, 0, 90);
             this.boat = glb.scene;
             this.direction = 1;
             // this.date = Date;
@@ -41,7 +41,10 @@ class Boat {
     }
 }
 
-const boat = new Boat();
+//eventlistener for loops to add a unique story to a boat
+const boat = new Boat(0);
+const boat1 = new Boat(50);
+
 
 // const loader = new GLTFLoader();
 
