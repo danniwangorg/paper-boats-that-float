@@ -24,10 +24,10 @@ class Boat {
             glb.scene.position.set(0, 0, 90);
             this.boat = glb.scene;
             this.direction = 1;
-            this.date = Date;
-            this.loc = Location;
-            this.msg = Story;
-            this.num = Count;
+            // this.date = Date;
+            // this.loc = Location;
+            // this.msg = Story;
+            // this.num = Count;
         })
     }
     update() {
@@ -276,19 +276,3 @@ window.addEventListener("load", () => {
             })
     });
 });
-
-// window.addEventListener("load", () => {
-
-//     fetch('/data')
-//         .then(response => response.json())
-//         .then(data => {
-//             console.log(data);
-//             let boatData = data;
-//             let NameDisplay = document.getElementById('username-display');
-//             NameDisplay.append(boatData.username);
-//             let LocDisplay = document.getElementById('location-display');
-//             LocDisplay.append(boatData.location);
-//             let MsgDisplay = document.getElementById('message-display');
-//             MsgDisplay.append(boatData.message);
-//         })
-// });

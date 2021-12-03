@@ -2,15 +2,7 @@ let pallete = ["#E1E0DC", "#496B84", "#96AfBD", "#516A83", "#E6AAA3", "#A6BECF",
 let sep = 3;
 let rs;
 
-let mySound;
-
-// function preload() {
-//     mySound = loadSound("remix.mp3");
-// }
-
-
 function setup() {
-    // mySound.play();
     let myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent("canvas-homepage");
     background(0);
@@ -58,9 +50,9 @@ function draw() {
 }
 
 
-function autoPlay() { //自动播放
+function autoPlay() {
     var myAuto = document.getElementById('myaudio');
-    myAuto.src = '/media/v2/sss.mp3'; //MP3路径
+    myAuto.src = '/media/v2/sss.mp3';
     myAuto.play();
 }
 

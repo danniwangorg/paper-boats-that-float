@@ -1,30 +1,43 @@
+* {
+    font-family: 'Righteous', cursive;
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
 h1 {
-    font-family: 'Righteous', cursive;
     font-style: normal;
     font-weight: lighter;
     font-size: 80px;
     line-height: 100px;
     color: #000000;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 h2 {
-    font-family: 'Righteous', cursive;
     font-style: oblique;
     font-weight: 100;
     font-size: 30px;
-    line-height: 30px;
-    color: #000000;
+    line-height: 50px;
+    color: rgb(41, 41, 41);
+    margin: 10px;
 }
 
-.descprition {
+p {
+    font-size: 20px;
+    color: rgb(41, 41, 41);
+}
+
+.subtitle {
     margin-top: 10px;
-    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.description {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -152,4 +165,19 @@ div {
     box-shadow: 0 0 0 0 #96AfBD;
     opacity: 0;
     z-index: -5;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        margin: 0;
+        font-size: 60px;
+    }
+    h2 {
+        margin: 5px;
+        font-size: 25px;
+    }
+    p {
+        padding-top: 20px;
+        font-size: 18px;
+    }
 }

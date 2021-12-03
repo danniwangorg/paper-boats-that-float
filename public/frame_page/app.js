@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
 
-    fetch('/data')
+    fetch('/latest_data')
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -14,3 +14,35 @@ window.addEventListener("load", () => {
             LocDisplay.append(boatData.location);
         })
 });
+
+
+// window.addEventListener("load", () => {
+
+//     fetch('/data')
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data);
+//             //add a boat to the page
+//             let boats = data[0];
+//             let randomNum = Math.floor(Math.random() * boats.length);
+//             let randomBoat = boats[randomNum];
+//             document.getElementById("input-display").innerText = randomBoat;
+//         });
+// });
+
+// window.addEventListener("load", () => {
+//     //Make a request for boats data
+//     fetch("/data")
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data)
+
+//             //add a boat to the page
+//             let quotes = data.quotes;
+//             let randomNum = Math.floor(Math.random() * quotes.length);
+//             let randomQuote = quotes[randomNum];
+//             console.log(randomQuote);
+//             document.getElementById("life-quote").innerText = randomQuote;
+//         });
+
+// });s
