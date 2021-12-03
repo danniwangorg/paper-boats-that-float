@@ -43,6 +43,20 @@ class Boat {
 
 const boat = new Boat();
 
+// const loader = new GLTFLoader();
+
+// loader.load('../assets/paperboat.glb', function(gltf) {
+//     // const checkerMesh = gltf.scene.children.find((child) => child.name === "Checker");
+//     // checkerMesh.scale.set(checkerMesh.scale.x * 0.4, checkerMesh.scale.y * 0.4, checkerMesh.scale.z * 0.4);
+//     // checkerMesh.position.y += checkerMesh.scale.y;
+//     // addCheckers(checkerMesh);
+//     scene.add(gltf.scene);
+//     const boatMesh = gltf.scene.children.find((child) => child.name === "paperboat");
+//     boatMesh.scale.set(3, 3, 3);
+//     boatMesh.position.set(0, 0, 100);
+//     scene.add(boatMesh);
+// });
+
 let INTERSECTED;
 // let theta = 0;
 
@@ -196,8 +210,7 @@ function render() {
 
     raycaster.setFromCamera(pointer, camera);
 
-    // const intersects = raycaster.intersectObjects( scene.children, false );
-    const intersects = raycaster.intersectObjects(boat, false);
+    const intersects = raycaster.intersectObjects(scene.children, false);
 
     console.log(intersects);
 
@@ -249,30 +262,30 @@ function onPointerMove(event) {
 
 }
 
-window.addEventListener("load", () => {
+// window.addEventListener("load", () => {
 
-    let boatButton = document.getElementById("button-two");
-    boatButton.addEventListener('click', () => {
+//     let boatButton = document.getElementById("button-two");
+//     boatButton.addEventListener('click', () => {
 
-        // store the username, location, message
-        let boatInput = document.getElementById("username").value;
+//         // store the username, location, message
+//         let boatInput = document.getElementById("username").value;
 
-        let boatInputObj = { "boat": bsoatInput };
-        boatInputObj.loc = document.getElementById("location").value;
-        boatInputObj.msg = document.getElementById("message").value;
+//         let boatInputObj = { "boat": bsoatInput };
+//         boatInputObj.loc = document.getElementById("location").value;
+//         boatInputObj.msg = document.getElementById("message").value;
 
-        let boatInputJSON = JSON.stringify(boatInputObj);
-        console.log(boatInputJSON);
+//         let boatInputJSON = JSON.stringify(boatInputObj);
+//         console.log(boatInputJSON);
 
-        fetch("/boats", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: cloudInputJSON
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Did this work?");
-                console.log(data);
-            })
-    });
-});
+//         fetch("/boats", {
+//                 method: 'POST',
+//                 headers: { 'Content-Type': 'application/json' },
+//                 body: cloudInputJSON
+//             })
+//             .then(response => response.json())
+//             .then(data => {
+//                 console.log("Did this work?");
+//                 console.log(data);
+//             })
+//     });
+// });
