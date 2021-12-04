@@ -43,22 +43,8 @@ class Boat {
 
 //eventlistener for loops to add a unique story to a boat
 const boat = new Boat(0);
-const boat1 = new Boat(50);
+const boat1 = new Boat(80);
 
-
-// const loader = new GLTFLoader();
-
-// loader.load('../assets/paperboat.glb', function(gltf) {
-//     // const checkerMesh = gltf.scene.children.find((child) => child.name === "Checker");
-//     // checkerMesh.scale.set(checkerMesh.scale.x * 0.4, checkerMesh.scale.y * 0.4, checkerMesh.scale.z * 0.4);
-//     // checkerMesh.position.y += checkerMesh.scale.y;
-//     // addCheckers(checkerMesh);
-//     scene.add(gltf.scene);
-//     const boatMesh = gltf.scene.children.find((child) => child.name === "paperboat");
-//     boatMesh.scale.set(3, 3, 3);
-//     boatMesh.position.set(0, 0, 100);
-//     scene.add(boatMesh);
-// });
 
 let INTERSECTED;
 // let theta = 0;
@@ -85,14 +71,10 @@ function init() {
 
     sun = new THREE.Vector3();
 
-    // boat = new Boat();
 
     raycaster = new THREE.Raycaster();
 
     document.addEventListener('click', onPointerMove);
-
-    // scene.add(boat);
-    // console.log(scene);
 
     // Water
 
@@ -169,8 +151,6 @@ function init() {
     controls.update();
 
     stats = new Stats();
-    // container.appendChild(stats.dom);
-
 }
 
 function onWindowResize() {
@@ -200,33 +180,30 @@ function render() {
 
     water.material.uniforms['time'].value += 1.0 / 60.0;
 
-    // theta += 0.1;
-
-    // camera.position.x = radius * Math.sin(THREE.MathUtils.degToRad(theta));
-    // camera.position.y = radius * Math.sin(THREE.MathUtils.degToRad(theta));
-    // camera.position.z = radius * Math.cos(THREE.MathUtils.degToRad(theta));
-    // camera.lookAt(scene.position);
-
-    // camera.updateMatrixWorld();
-
     // find intersections
+    // clickable boat
 
     raycaster.setFromCamera(pointer, camera);
 
-    const intersects = raycaster.intersectObjects(scene.children, false);
+    const intersects = raycaster.intersectObjects(scene.children, true);
 
-    console.log(intersects);
+    if (intersects.length > 0 && intersects[0].object.name === 'Boat') {
+        const target = intersects[0].object;
 
-    if (intersects.length > 0) {
+        if (INTERSECTED != target) {
 
-        if (INTERSECTED != intersects[0].object) {
+            if (INTERSECTED) {
+                INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+            }
 
-            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
 
-            INTERSECTED = intersects[0].object;
+            document.getElementById("text").style.display = "block";
+
+            // INTERSECTED.material.window.open('../frame_page/frame.html', '_blank');
+
+            INTERSECTED = target;
             INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-            INTERSECTED.material.emissive.setHex(0xff0000);
-            console.log("no intersection");
+            INTERSECTED.material.emissive.setHex(0x4A483B);
 
         }
 
@@ -235,27 +212,15 @@ function render() {
         if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
 
         INTERSECTED = null;
-        console.log("has intersection");
+        // console.log("has intersection");
+
+        document.getElementById("text").style.display = "none";
 
     }
 
     renderer.render(scene, camera);
 }
 
-//open alert window
-
-var selectedObject;
-
-// function onclick(event) {
-//     alert("onclick")
-//     var mouse = new THREE.Vector2();
-//     raycaster.setFromCamera(mouse, camera);
-//     var intersects = raycaster.intersectObjects(planets, true); //array
-//     if (intersects.length > 0) {
-//         selectedObject = intersects[0];
-//         alert(selectedObject);
-//     }
-// }
 
 function onPointerMove(event) {
 
@@ -265,30 +230,17 @@ function onPointerMove(event) {
 
 }
 
-// window.addEventListener("load", () => {
+window.addEventListener("click", () => {
 
-//     let boatButton = document.getElementById("button-two");
-//     boatButton.addEventListener('click', () => {
-
-//         // store the username, location, message
-//         let boatInput = document.getElementById("username").value;
-
-//         let boatInputObj = { "boat": bsoatInput };
-//         boatInputObj.loc = document.getElementById("location").value;
-//         boatInputObj.msg = document.getElementById("message").value;
-
-//         let boatInputJSON = JSON.stringify(boatInputObj);
-//         console.log(boatInputJSON);
-
-//         fetch("/boats", {
-//                 method: 'POST',
-//                 headers: { 'Content-Type': 'application/json' },
-//                 body: cloudInputJSON
-//             })
-//             .then(response => response.json())
-//             .then(data => {
-//                 console.log("Did this work?");
-//                 console.log(data);
-//             })
-//     });
-// });
+    fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let boats = data;
+            let randomNum = Math.floor(Math.random() * boats.length);
+            let randomBoat = boats[randomNum];
+            document.getElementById("input-display").innerText = randomBoat.boat;
+            document.getElementById("date-display").innerText = randomBoat.date;
+            document.getElementById("loc-display").innerText = randomBoat.location;
+        });
+});
