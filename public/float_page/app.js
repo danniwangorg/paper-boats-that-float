@@ -44,6 +44,7 @@ class Boat {
 //eventlistener for loops to add a unique story to a boat
 const boat = new Boat(0);
 const boat1 = new Boat(80);
+const boat2 = new Boat(-80);
 
 
 let INTERSECTED;
