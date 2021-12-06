@@ -10,30 +10,25 @@ import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
 let container, stats;
 let camera, scene, raycaster, renderer;
 let controls, water, sun, mesh;
-// let controls, water, sun, mesh, boat;
+let boat = [];
 
 const loader = new GLTFLoader();
 
-//load paperboat model
-class Boat {
-    constructor(x) {
+class myBoat {
+    constructor() {
         loader.load('../assets/paperboat.glb', (glb) => {
             console.log(glb);
             scene.add(glb.scene);
             glb.scene.scale.set(200, 200, 200);
-            glb.scene.position.set(x, 0, 90);
-            this.boat = glb.scene;
+            glb.scene.position.set(0, 0, 90);
+            this.myboat = glb.scene;
             this.direction = 1;
-            // this.date = Date;
-            // this.loc = Location;
-            // this.msg = Story;
-            // this.num = Count;
         })
     }
     update() {
-        if (this.boat) {
-            this.boat.position.z -= 0.1 * this.direction;
-            if (this.boat.position.z <= -300 || this.boat.position.z >= 90) {
+        if (this.myboat) {
+            this.myboat.position.z -= 0.1 * this.direction;
+            if (this.myboat.position.z <= -300 || this.myboat.position.z >= 90) {
                 // this.boat.position.z = 0.1;
                 this.direction = -this.direction;
             }
@@ -41,17 +36,33 @@ class Boat {
     }
 }
 
-//eventlistener for loops to add a unique story to a boat
-const boat = new Boat(0);
-const boat1 = new Boat(80);
-const boat2 = new Boat(-80);
+const myboat = new myBoat(0);
 
+//load paperboat model
+class Boat {
+    constructor() {
+        loader.load('../assets/paperboat.glb', (glb) => {
+            console.log(glb);
+            scene.add(glb.scene);
+            glb.scene.scale.set(200, 200, 200);
+            this.boat = glb.scene;
+            this.speed = (Math.random() + 0.2) * 2;
+            this.direction = 1;
+            this.boat.position.y = -0.5;
+            this.boat.position.x = (Math.random() - 0.5) * 2000 - 100;
+            this.boat.position.z = (Math.random() - 0.5) * 1000 - 10;
+        })
+    }
+    update() {
+        if (this.boat) {
+            this.boat.position.z -= 0.1 * this.direction * this.speed;
+        }
+    }
+}
 
 let INTERSECTED;
-// let theta = 0;
 
 const pointer = new THREE.Vector2();
-// const radius = 100;
 
 init();
 animate();
@@ -152,23 +163,34 @@ function init() {
     controls.update();
 
     stats = new Stats();
+
+    fetch('/messages')
+        .then(response => response.json())
+        .then(messages => {
+            for (let i = 0; i < messages.length - 1; i++) {
+                boat[i] = new Boat()
+            }
+        });
 }
 
-function onWindowResize() {
+// function onWindowResize() {
 
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+//     camera.aspect = window.innerWidth / window.innerHeight;
+//     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
+//     renderer.setSize(window.innerWidth, window.innerHeight);
 
-}
+// }
 
 function animate() {
-    //console.log('animate')
     requestAnimationFrame(animate);
     render();
     stats.update();
-    boat.update();
+    myboat.update();
+    //add a story to a boat
+    for (let i = 0; i < boat.length; i++) {
+        boat[i].update();
+    }
 }
 
 function render() {
@@ -183,7 +205,6 @@ function render() {
 
     renderer.render(scene, camera);
 }
-
 
 function onPointerMove(event) {
 
