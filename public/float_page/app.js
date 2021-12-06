@@ -181,6 +181,16 @@ function render() {
 
     water.material.uniforms['time'].value += 1.0 / 60.0;
 
+    renderer.render(scene, camera);
+}
+
+
+function onPointerMove(event) {
+
+    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    console.log(pointer);
+
     // find intersections
     // clickable boat
 
@@ -196,7 +206,6 @@ function render() {
             if (INTERSECTED) {
                 INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
             }
-
 
             document.getElementById("text").style.display = "block";
 
@@ -218,16 +227,6 @@ function render() {
         document.getElementById("text").style.display = "none";
 
     }
-
-    renderer.render(scene, camera);
-}
-
-
-function onPointerMove(event) {
-
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    console.log(pointer);
 
 }
 
