@@ -16,20 +16,20 @@ const loader = new GLTFLoader();
 
 class myBoat {
     constructor() {
-        loader.load('../assets/paperboat.glb', (glb) => {
-            console.log(glb);
-            scene.add(glb.scene);
-            glb.scene.scale.set(200, 200, 200);
-            glb.scene.position.set(0, 0, 90);
-            this.myboat = glb.scene;
-            this.direction = 1;
-        })
-    }
+            loader.load('../assets/paperboat.glb', (glb) => {
+                console.log(glb);
+                scene.add(glb.scene);
+                glb.scene.scale.set(200, 200, 200);
+                glb.scene.position.set(0, 0, 90);
+                this.myboat = glb.scene;
+                this.direction = 1;
+            })
+        }
+        //only myBoat will be back and be with me forever
     update() {
         if (this.myboat) {
             this.myboat.position.z -= 0.1 * this.direction;
             if (this.myboat.position.z <= -300 || this.myboat.position.z >= 90) {
-                // this.boat.position.z = 0.1;
                 this.direction = -this.direction;
             }
         }
