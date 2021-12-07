@@ -25,11 +25,12 @@ class myBoat {
                 this.direction = 1;
             })
         }
-        //only myBoat will be back and be with me forever
+        //myboat will be back
     update() {
         if (this.myboat) {
             this.myboat.position.z -= 0.1 * this.direction;
             if (this.myboat.position.z <= -300 || this.myboat.position.z >= 90) {
+                // this.boat.position.z = 0.1;
                 this.direction = -this.direction;
             }
         }
